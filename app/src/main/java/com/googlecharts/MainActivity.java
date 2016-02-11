@@ -16,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         chart = (Chart) findViewById(R.id.chart);
-        chart.create(300, 300, "Google Pie Chart", "http://www.provant.com.es/~greenpoint/Charts/pie.html", "Android", "Orgánico", "Papel", "Vidrio", 3, 4, 5);
+        chart.create(300, 300, "Google Pie Chart", "http://www.provant.com.es/~greenpoint/Charts/pie.html", "Android", "Orgánico", "Papel", "Vídrio", 3, 4, 5);
     }
 }
