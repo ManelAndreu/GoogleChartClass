@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <!--Cargamos la API de AJAX-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      // Cargamos la API con los paquetes de visualización necesarios-
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      
+	 //Callback que se ejecutará cuando se cargue la API.
+      google.setOnLoadCallback(drawChart);
+
+
+      // Creamos la función que instancia al chart.
+      function drawChart() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'ITEM');
+      data.addColumn('number', 'VALUE');
+	  //Accedemos al JavaScriptInterface que tenemos en Android para recuperar los valores.
+      data.addRows([
+					[Android.getName1(), Android.getNum1()],
+					[Android.getName2(), Android.getNum2()],
+					[Android.getName3(), Android.getNum3()]
+		]);
+
+      // Recuperamos las opciones.
+      var options = {'title': Android.getTitle(),
+                     'width':Android.getWidth(),
+                     'height':Android.getHeight()};
+
+      // Creamos el chart instanciando el chart deseado...
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div')); //Buscamos en el HTML donde estará el div del chart.
+		// Y le pasamos los parámetros.
+	 chart.draw(data, options);
+    }
+    </script>
+  </head>
+
+  <body>
+ <!-- Insertamos el chart. -->
+    <div id="chart_div"></div>
+  </body>
+</html>
